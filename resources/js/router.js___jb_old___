@@ -49,8 +49,6 @@ export default new VueRouter({
             name: 'users.edit',
             component: UsersEdit,
         },
-       // { path: '/404', name: '404', component: NotFound },
-       // { path: '*', redirect: '/404' },
    ],
     mode: 'history'
 
