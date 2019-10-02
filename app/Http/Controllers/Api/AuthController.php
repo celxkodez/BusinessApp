@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\api;
 
 use App\User;
-use App\Http\Requests\auth;
+use Illuminate\Http\Request;
+use App\Http\Requests\Register;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -14,15 +16,40 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(auth $request)
+    protected function create(Register $request)
     {
-        // assign hashed password to password field
-        $request->password = bcrypt($request->password);
+
         User::create($request->all());
 
         return response()->json([
             'statusCode' => 201,
             'message' => 'User Account Created Successfully'
         ], 201);
+    }
+
+    /**
+     * Login user.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+    protected function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (!Auth::attempt($credentials)) {
+            return response()->json([
+                'statusCode' => 401,
+                'message' => 'Invalid Email or Password',
+            ], 401);
+        }
+
+        $user = Auth::user();
+
+        return response()->json([
+            'statusCode' => 200,
+            'message' => 'User logged in',
+            'token' => $user->createToken('business')->accessToken,
+        ], 200);
     }
 }
