@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import router from './router.js';
-import App from './components/App';
-import Home from './components/Home';
-import About from './components/About';
+import App from './App';
+
 
 
 require('./bootstrap');
@@ -13,8 +12,6 @@ require('./bootstrap');
 
 const app = new Vue({
     el: '#app',
-    components: {
-      App, Home, About
-    },
-    router
+    router,
+    // render: h=>h(App)
 });
