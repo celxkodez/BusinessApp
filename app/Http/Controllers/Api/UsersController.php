@@ -39,7 +39,7 @@ class UsersController extends Controller
   protected function create(Request $data)
   {
       return User::create([
-          'username' => $data['name'],
+          'username' => $data['username'],
           'email' => $data['email'],
           'password' => Hash::make($data['password']),
       ]);

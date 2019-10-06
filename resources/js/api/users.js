@@ -12,6 +12,6 @@ export default {
     },
     create(data) {
 
-        return client.post('users', data);
+        return axios.post(`/api/users/${id}`, data);
     },
 };
