@@ -79,7 +79,7 @@ export default {
     //  api
       //  .create(this.user)
       //  .then(response => {
-          console.log(response);
+      //    console.log(response);
           // this.$router.push({ name: 'users.edit', params: { id: response.data.data.id } });
         //})
       //  .catch(e => {

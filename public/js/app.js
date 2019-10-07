@@ -2225,8 +2225,8 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.user); //  api
       //  .create(this.user)
       //  .then(response => {
-
-      console.log(response); // this.$router.push({ name: 'users.edit', params: { id: response.data.data.id } });
+      //    console.log(response);
+      // this.$router.push({ name: 'users.edit', params: { id: response.data.data.id } });
       //})
       //  .catch(e => {
       //    this.message =
@@ -38457,7 +38457,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "card-body" }, [
               _c("form", { attrs: { method: "POST" } }, [
                 _vm._v(
-                  "\r\n                        @csrf\r\n\r\n                        "
+                  "\n                        @csrf\n\n                        "
                 ),
                 _c("div", { staticClass: "form-group row" }, [
                   _c(
@@ -38519,7 +38519,7 @@ var staticRenderFns = [
                       },
                       [
                         _vm._v(
-                          "\r\n                                  Signin\r\n                                "
+                          "\n                                  Signin\n                                "
                         )
                       ]
                     )
@@ -53787,34 +53787,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/js/App.js":
-/*!*****************************!*\
-  !*** ./resources/js/App.js ***!
-  \*****************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router.js */ "./resources/js/router.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./resources/js/App.js");
-
-
-
-
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-
-var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: '#app',
-  router: _router_js__WEBPACK_IMPORTED_MODULE_1__["default"] // render: h=>h(App)
-
-});
-
-/***/ }),
-
 /***/ "./resources/js/api/users.js":
 /*!***********************************!*\
   !*** ./resources/js/api/users.js ***!
@@ -53856,10 +53828,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router.js */ "./resources/js/router.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./resources/js/App.js");
 
-
-
+ //import App from './App';
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
@@ -54380,8 +54350,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\user\BusinessApp\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\user\BusinessApp\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /opt/lampp/htdocs/BusinessApp/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /opt/lampp/htdocs/BusinessApp/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
