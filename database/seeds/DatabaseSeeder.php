@@ -10,9 +10,11 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
      public function run()
-     {
-         $this->call([
-             UsersTableSeeder::class,
-         ]);
+     {  
+        $this->command->call('passport:install');
+        //  $this->call([
+        //      UsersTableSeeder::class,
+        //  ]);
+        $this->call(CountryTableSeeder::class);
      }
 }

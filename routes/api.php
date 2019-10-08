@@ -24,6 +24,7 @@ Route::middleware('auth:api')->group(function () {
 
 Route::post('/register', 'api\AuthController@create');
 Route::post('/login', 'api\AuthController@login');
+Route::get('/country', 'api\CountryController@index');
 
 Route::namespace('Api')->group(function ()
 {
