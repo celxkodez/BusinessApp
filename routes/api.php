@@ -18,8 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::middleware('auth:api')->group(function () {
+  Route::post('create-business', 'api\BusinessController@create');
+});
+
 Route::post('/register', 'api\AuthController@create');
 Route::post('/login', 'api\AuthController@login');
+Route::get('/country', 'api\CountryController@index');
 
 Route::namespace('Api')->group(function ()
 {
