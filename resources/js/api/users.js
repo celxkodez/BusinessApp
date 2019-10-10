@@ -12,6 +12,6 @@ export default {
     },
     create(data) {
 
-        return axios.post(`/api/users/${id}`, data);
+        return axios.post(`/api/users/create`, data);
     },
 };

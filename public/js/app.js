@@ -2220,19 +2220,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     onSubmit: function onSubmit($event) {
+      var _this = this;
+
       this.saving = true;
-      this.message = false;
-      console.log(this.user); //  api
-      //  .create(this.user)
-      //  .then(response => {
-      //    console.log(response);
-      // this.$router.push({ name: 'users.edit', params: { id: response.data.data.id } });
-      //})
-      //  .catch(e => {
-      //    this.message =
-      //      e.response.data.message || "There was an issue creating the user.";
-      //  })
-      //  .then(() => (this.saving = false));
+      this.message = false; //  console.log(this.user);
+
+      _api_users__WEBPACK_IMPORTED_MODULE_0__["default"].create(this.user).then(function (response) {
+        console.log(response); //   this.$router.push();
+      })["catch"](function (e) {
+        _this.message = e.response.data.message || "There was an issue creating the user.";
+      }).then(function () {
+        return _this.saving = false;
+      });
     }
   }
 });
@@ -38457,7 +38456,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "card-body" }, [
               _c("form", { attrs: { method: "POST" } }, [
                 _vm._v(
-                  "\n                        @csrf\n\n                        "
+                  "\r\n                        @csrf\r\n\r\n                        "
                 ),
                 _c("div", { staticClass: "form-group row" }, [
                   _c(
@@ -38519,7 +38518,7 @@ var staticRenderFns = [
                       },
                       [
                         _vm._v(
-                          "\n                                  Signin\n                                "
+                          "\r\n                                  Signin\r\n                                "
                         )
                       ]
                     )
@@ -53810,7 +53809,7 @@ __webpack_require__.r(__webpack_exports__);
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("/api/users/".concat(id), data);
   },
   create: function create(data) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/users/".concat(id), data);
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/users/create", data);
   }
 });
 
@@ -54350,8 +54349,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /opt/lampp/htdocs/BusinessApp/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /opt/lampp/htdocs/BusinessApp/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\user\BusinessApp\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\user\BusinessApp\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

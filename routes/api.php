@@ -25,6 +25,6 @@ Route::namespace('Api')->group(function ()
 {
   Route::get('/users', 'UsersController@index');
   Route::get('/users/{user}', 'UsersController@show');
-  Route::post('/users/{user}', 'UsersController@create');
+  Route::post('/users/create', 'UsersController@create');
 
 });

@@ -75,18 +75,18 @@ export default {
     onSubmit($event) {
       this.saving = true;
       this.message = false;
-      console.log(this.user);
-    //  api
-      //  .create(this.user)
-      //  .then(response => {
-      //    console.log(response);
-          // this.$router.push({ name: 'users.edit', params: { id: response.data.data.id } });
-        //})
-      //  .catch(e => {
-      //    this.message =
-      //      e.response.data.message || "There was an issue creating the user.";
-      //  })
-      //  .then(() => (this.saving = false));
+    //  console.log(this.user);
+      api
+        .create(this.user)
+        .then(response => {
+          console.log(response);
+        //   this.$router.push();
+        })
+       .catch(e => {
+          this.message =
+            e.response.data.message || "There was an issue creating the user.";
+        })
+        .then(() => (this.saving = false));
     }
   }
 };
