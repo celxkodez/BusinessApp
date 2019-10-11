@@ -5,6 +5,11 @@ $body-bg: #f8fafc;
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+// Cards
+$card-spacer-x: 0.9375rem;
+$card-spacer-y: 0.625rem;
+$card-cap-bg: #fbfbfb;
+$card-border-color: #e8eced;
 
 // Colors
 $blue: #3490dc;
@@ -19,3 +24,10 @@ $teal: #4dc0b5;
 $cyan: #6cb2eb;
 $reds: #ffffff;
 $blues: #0f0f0f;
+// Borders
+$border-radius: .125rem;
+$border-radius-lg: .2rem;
+$border-radius-sm: .15rem;
+
+// Nav Pills
+$nav-pills-border-radius: 0;
