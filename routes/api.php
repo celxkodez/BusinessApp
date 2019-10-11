@@ -22,6 +22,8 @@ Route::middleware('auth:api')->group(function () {
     Route::post('create-business', 'api\BusinessController@create');
 });
 
+Route::get('/profile', 'api\UsersController@profile');
+
 Route::post('/register', 'api\AuthController@create');
 Route::post('/login', 'api\AuthController@login');
 Route::get('/country', 'api\CountryController@index');

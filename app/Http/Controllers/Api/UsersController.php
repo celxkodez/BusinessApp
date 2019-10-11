@@ -23,6 +23,17 @@ class UsersController extends Controller
     return UserResource::collection(User::wehere('id', $request->user)->get());
   }
 
+  public function profile()
+  {
+    $profile = User::where('id', 1)->with('country:id,name')->get();
+
+    return response()->json([
+      'statusCode' => 200,
+      'message' => 'User profile',
+      'result' => $profile,
+    ], 200);
+  }
+
   protected function validator(Request $data)
   {
     return Validator::make($data, [
