@@ -23,18 +23,18 @@ class business extends FormRequest
      */
     public function rules()
     {
-      return [
-        'name' => 'required|min:4',
-        'description' => 'required|min:20',
-        'type' => 'required',
-        'area' => 'required',
-        'address' => 'required',
-        'city' => 'required',
-        'state' => 'required',
-        'LGA' => 'required',
-        'country' => 'required',
-        'year_started' => 'required'
+        return [
+            'name' => 'required|min:4',
+            'description' => 'required|min:20',
+            'type' => 'required',
+            'area' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'LGA' => 'required',
+            'country' => 'required',
+            'year_started' => 'required'
 
-    ];
+        ];
     }
 }
