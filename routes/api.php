@@ -19,17 +19,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:api')->group(function () {
-  Route::post('create-business', 'api\BusinessController@create');
+    Route::post('create-business', 'api\BusinessController@create');
 });
 
 Route::post('/register', 'api\AuthController@create');
 Route::post('/login', 'api\AuthController@login');
 Route::get('/country', 'api\CountryController@index');
 
-Route::namespace('Api')->group(function ()
-{
-  Route::get('/users', 'UsersController@index');
-  Route::get('/users/{user}', 'UsersController@show');
-  Route::post('/users/create', 'UsersController@create');
-
+Route::namespace('Api')->group(function () {
+    Route::get('/users', 'UsersController@index');
+    Route::get('/users/{user}', 'UsersController@show');
+    Route::post('/users/create', 'UsersController@create');
 });
