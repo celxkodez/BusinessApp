@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
       return $this->hasOne('App\BusinessModel');
     }
+
+    public function country()
+    {
+        return $this->belongsTo('App\Country');
+    }
 }
