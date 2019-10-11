@@ -25,11 +25,12 @@ class Business extends Migration
       $table->string('city');
       $table->string('state');
       $table->string('LGA');
-      $table->string('country');
+      $table->unsignedBigInteger('country');
       $table->date('year_started');
       $table->timestamps();
 
       $table->foreign('user_id')->references('id')->on('users');
+      $table->foreign('country')->references('id')->on('countries');
     });
   }
 
