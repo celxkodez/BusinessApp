@@ -1,5 +1,5 @@
 {
-  "editor.tabSize": 2,
+  "editor.tabSize": 4,
   // Should point to php-cs-fixer.phar file, if you have installed this manually (without Composer). Should include .phar extension.
   "phpformatter.pharPath": "/home/user/.config/composer/vendor/friendsofphp/php-cs-fixer/php-cs-fixer.phar",
   // If the pharPath is set, and you are not using Composer, and you haven't added PHP to your PATH, this should point to the php.exe file.

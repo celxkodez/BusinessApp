@@ -16,14 +16,14 @@ class CreateCountry extends Migration
         Schema::create('countries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('capital', 255)->nullable();
-		    $table->string('full_name', 255)->nullable();
-		    $table->string('name', 255)->default('');
-		    $table->string('country_code', 255)->default('');
-		    $table->string('currency', 50)->default('');
-		    $table->string('currency_code', 50)->default('');
-		    $table->string('currency_sub_unit', 50)->default('');
-		    $table->string('calling_code', 50)->default('');
-		    $table->string('currency_symbol', 50)->default('');
+            $table->string('full_name', 255)->nullable();
+            $table->string('name', 255)->default('');
+            $table->string('country_code', 255)->default('');
+            $table->string('currency', 50)->default('');
+            $table->string('currency_code', 50)->default('');
+            $table->string('currency_sub_unit', 50)->default('');
+            $table->string('calling_code', 50)->default('');
+            $table->string('currency_symbol', 50)->default('');
             $table->timestamps();
         });
     }

@@ -24,9 +24,18 @@ class Register extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required|min:2',
-            'last_name' => 'required|min:2',
+            'firstname' => 'required|min:4',
+            'lastname' => 'required|min:4',
             'email' => 'required|unique:users|max:255',
+            'gender' => 'required|min:4',
+            'birth' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'area' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'LGA' => 'required',
+            'country' => 'required',
             'password' => 'required',
         ];
     }
