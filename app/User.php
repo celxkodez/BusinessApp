@@ -110,7 +110,7 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
     }
     public function business()
     {
-      return $this->hadOne('App\BusinessModel');
+      return $this->hasOne('App\BusinessModel');
     }
     public function country()
     {
