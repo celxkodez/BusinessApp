@@ -11,4 +11,9 @@ class productModel extends Model
         'color' => 'array',
         'images' => 'array'
     ];
+
+    public function business()
+    {
+        return $this->belongsTo('App\BusinessModel');
+    }
 }
