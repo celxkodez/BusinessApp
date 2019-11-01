@@ -51,7 +51,7 @@ class UsersController extends Controller
    */
   protected function create(Request $data)
   {
-    return User::create([
+    $user =  User::create([
       'username' => $data['username'],
       'email' => $data['email'],
       'password' => Hash::make($data['password']),

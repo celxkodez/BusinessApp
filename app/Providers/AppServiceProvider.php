@@ -15,6 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // I'm currently running a older version of mysql, iwould remove this as soon as i update my db
+        Schema::defaultStringLength(191);
+
         if ($this->app->runningUnitTests()) {
             Schema::defaultStringLength(191);
         }

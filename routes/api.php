@@ -16,6 +16,9 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => 'auth:api'], function () {
     Route::post('logout', 'Auth\LoginController@logout');
 
+    Route::post('create-business', 'Api\BusinessController@create');
+    Route::post('create-product', 'Api\ProductController@create');
+
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
