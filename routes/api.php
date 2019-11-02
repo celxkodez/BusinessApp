@@ -17,7 +17,10 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('logout', 'Auth\LoginController@logout');
 
     Route::post('create-business', 'Api\BusinessController@create');
+    Route::patch('update-business/{businessId}', 'Api\BusinessController@update');
+
     Route::post('create-product', 'Api\ProductController@create');
+    Route::patch('update-product/{productId}', 'Api\ProductController@update');
 
     Route::get('/user', function (Request $request) {
         return $request->user();
