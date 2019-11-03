@@ -27,6 +27,6 @@ class BusinessModel extends Model
 
     public function products()
     {
-        return $this->hasMany('App\productModel');
+        return $this->hasMany('App\ProductModel');
     }
 }
