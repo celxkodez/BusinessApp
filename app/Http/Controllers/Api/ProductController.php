@@ -73,4 +73,25 @@ class ProductController extends Controller
             'message' => 'Your Product Has Been Updated Successfully'
         ], 201);
     }
+
+    /**
+     * Get products registered under a business.
+     *
+     * @param  array  $data
+     * @return JSON
+     */
+    protected function getBusinessProducts(Request $request, $businesId)
+    {
+        // TODO: implement pagination
+        
+        $product = BusinessModel::find($businesId)
+            ->products()
+            ->get();
+
+        return response()->json([
+            'statusCode' => 200,
+            'message' => "Available Products for business with ID $businesId",
+            'result' => $product
+        ], 201);
+    }
 }

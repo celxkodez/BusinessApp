@@ -22,6 +22,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('create-product', 'Api\ProductController@create');
     Route::patch('update-product/{productId}', 'Api\ProductController@update');
 
+    Route::get('business/{businessId}/products', 'Api\ProductController@getBusinessProducts');
+
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
