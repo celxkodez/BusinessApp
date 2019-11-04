@@ -59,7 +59,9 @@ class BusinessController extends Controller
      */
     protected function getUserBusiness()
     {
-        $business = BusinessModel::where('user_id', Auth::id())->get();
+        $business = BusinessModel::where('user_id', Auth::id())
+            ->withCount('products')
+            ->get();
 
         return response()->json([
             'statusCode' => 200,
