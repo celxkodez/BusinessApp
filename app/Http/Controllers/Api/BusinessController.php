@@ -50,4 +50,21 @@ class BusinessController extends Controller
             'message' => 'Your Business Has Been Updated Successfully'
         ], 200);
     }
+
+    /**
+     * get all business a user has registered;
+     *
+     * @param  array  $data
+     * @return Json
+     */
+    protected function getUserBusiness()
+    {
+        $business = BusinessModel::where('user_id', Auth::id())->get();
+
+        return response()->json([
+            'statusCode' => 200,
+            'message' => 'Businesses user has registered',
+            'result' => $business
+        ], 200);
+    }
 }

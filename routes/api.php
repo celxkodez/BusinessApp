@@ -24,6 +24,8 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::get('business/{businessId}/products', 'Api\ProductController@getBusinessProducts');
 
+    Route::get('all-business', 'Api\BusinessController@getUserBusiness');
+
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
