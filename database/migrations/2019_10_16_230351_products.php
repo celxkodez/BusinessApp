@@ -15,11 +15,11 @@ class Products extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('business_id');
+            $table->unsignedBigInteger('store_id');
             $table->string('name');
             $table->Text('short_description');
             $table->string('brand_name');
-            $table->decimal('price',9,2);
+            $table->decimal('price', 9, 2);
             $table->integer('discount')->nullable();
             $table->string('phone_number');
             $table->text('product_description');
@@ -33,7 +33,7 @@ class Products extends Migration
             // $table->json('color');
             $table->timestamps();
 
-            $table->foreign('business_id')->references('id')->on('business');
+            $table->foreign('store_id')->references('id')->on('store');
         });
     }
 
