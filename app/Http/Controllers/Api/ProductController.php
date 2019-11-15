@@ -92,6 +92,23 @@ class ProductController extends Controller
             'statusCode' => 200,
             'message' => "Available Products for store with ID $storeId",
             'result' => $product
-        ], 201);
+        ], 200);
+    }
+
+    /**
+     * Get single product
+     *
+     * @param  array  $data
+     * @return JSON
+     */
+    protected function getSingleProduct(Request $request, $productId)
+    {
+        $product = ProductModel::findOrFail($productId);
+
+        return response()->json([
+            'statusCode' => 200,
+            'message' => "Product with ID $productId",
+            'result' => $product
+        ], 200);
     }
 }
