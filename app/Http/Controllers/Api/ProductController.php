@@ -63,15 +63,15 @@ class ProductController extends Controller
 
         if ($updatedProduct == 0) {
             return response()->json([
-                'statusCode' => 400,
+                'statusCode' => 500,
                 'message' => 'Unable to update product'
-            ], 400);
+            ], 500);
         }
 
         return response()->json([
             'statusCode' => 200,
             'message' => 'Your Product Has Been Updated Successfully'
-        ], 201);
+        ], 200);
     }
 
     /**
@@ -92,6 +92,23 @@ class ProductController extends Controller
             'statusCode' => 200,
             'message' => "Available Products for store with ID $storeId",
             'result' => $product
-        ], 201);
+        ], 200);
+    }
+
+    /**
+     * Get single product
+     *
+     * @param  array  $data
+     * @return JSON
+     */
+    protected function getSingleProduct(Request $request, $productId)
+    {
+        $product = ProductModel::findOrFail($productId);
+
+        return response()->json([
+            'statusCode' => 200,
+            'message' => "Product with ID $productId",
+            'result' => $product
+        ], 200);
     }
 }
