@@ -5,8 +5,8 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateProduct;
 use App\ProductModel;
-use App\BusinessModel;
-use App\Http\Requests\business;
+use App\StoreModel;
+use App\Http\Requests\Store;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +22,7 @@ class ProductController extends Controller
     protected function create(CreateProduct $request)
     {
         // check if business exists, and if the user owns the business
-        BusinessModel::findOrFail($request->get('business_id'))
+        StoreModel::findOrFail($request->get('store_id'))
             ->where('user_id', Auth::id());
 
         ProductModel::create($request->all());
@@ -41,57 +41,74 @@ class ProductController extends Controller
      */
     protected function update(CreateProduct $request, $productId)
     {
-        $business_id = $request->get('business_id');
-        // check if business exists, and if it belongs to the user trying to update the product
-        $business = BusinessModel::findOrFail($business_id)
+        $store_id = $request->get('store_id');
+        // check if store exists, and if it belongs to the user trying to update the product
+        $store = StoreModel::findOrFail($store_id)
             ->where('user_id', Auth::id())
             ->get();
 
 
-        // if $business varaible is empty then it means the business id does not exist,
+        // if $store varaible is empty then it means the store id does not exist,
         // or the user is trying to update a product that does not belong to him/her
-        if (count($business) == 0) {
+        if (count($store) == 0) {
             return response()->json([
                 'statusCode' => 404,
-                'message' => "Business with ID $business_id not found, or does not belong to user"
+                'message' => "Store with ID $store_id not found, or does not belong to user"
             ], 404);
         }
 
         $updatedProduct = ProductModel::findOrFail($productId)
-            ->where('business_id', $business_id)
+            ->where('store_id', $store_id)
             ->update($request->all());
 
         if ($updatedProduct == 0) {
             return response()->json([
-                'statusCode' => 400,
+                'statusCode' => 500,
                 'message' => 'Unable to update product'
-            ], 400);
+            ], 500);
         }
 
         return response()->json([
             'statusCode' => 200,
             'message' => 'Your Product Has Been Updated Successfully'
-        ], 201);
+        ], 200);
     }
 
     /**
-     * Get products registered under a business.
+     * Get products registered under a store.
      *
      * @param  array  $data
      * @return JSON
      */
-    protected function getBusinessProducts(Request $request, $businesId)
+    protected function getStoreProducts(Request $request, $storeId)
     {
         // TODO: implement pagination
-        
-        $product = BusinessModel::find($businesId)
+
+        $product = StoreModel::findOrFail($storeId)
             ->products()
             ->get();
 
         return response()->json([
             'statusCode' => 200,
-            'message' => "Available Products for business with ID $businesId",
+            'message' => "Available Products for store with ID $storeId",
             'result' => $product
-        ], 201);
+        ], 200);
+    }
+
+    /**
+     * Get single product
+     *
+     * @param  array  $data
+     * @return JSON
+     */
+    protected function getSingleProduct(Request $request, $productId)
+    {
+        $product = ProductModel::findOrFail($productId);
+
+        return response()->json([
+            'statusCode' => 200,
+            'message' => "Product with ID $productId",
+            'result' => $product
+        ], 200);
     }
 }

@@ -16,15 +16,16 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => 'auth:api'], function () {
     Route::post('logout', 'Auth\LoginController@logout');
 
-    Route::post('create-business', 'Api\BusinessController@create');
-    Route::patch('update-business/{businessId}', 'Api\BusinessController@update');
+    Route::post('create-store', 'Api\StoreController@create');
+    Route::patch('update-store/{storeId}', 'Api\StoreController@update');
 
     Route::post('create-product', 'Api\ProductController@create');
     Route::patch('update-product/{productId}', 'Api\ProductController@update');
+    Route::get('single-product/{productId}', 'Api\ProductController@getSingleProduct');
 
-    Route::get('business/{businessId}/products', 'Api\ProductController@getBusinessProducts');
+    Route::get('store/{storeId}/products', 'Api\ProductController@getStoreProducts');
 
-    Route::get('all-business', 'Api\BusinessController@getUserBusiness');
+    Route::get('all-stores', 'Api\StoreController@getUserStores');
 
     Route::get('/user', function (Request $request) {
         return $request->user();

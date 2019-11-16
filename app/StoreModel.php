@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
-class BusinessModel extends Model
+class StoreModel extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -17,7 +17,7 @@ class BusinessModel extends Model
     ];
     protected $hidden = ['user_id'];
 
-    protected $table = 'business';
+    protected $table = 'store';
 
 
     public function user()
@@ -27,6 +27,6 @@ class BusinessModel extends Model
 
     public function products()
     {
-        return $this->hasMany('App\ProductModel', 'business_id');
+        return $this->hasMany('App\ProductModel', 'store_id');
     }
 }

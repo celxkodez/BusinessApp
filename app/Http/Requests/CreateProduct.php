@@ -24,7 +24,7 @@ class CreateProduct extends FormRequest
     public function rules()
     {
         return [
-            'business_id' => 'required',
+            'store_id' => 'required',
             'name' => 'required',
             'short_description' => 'required',
             'brand_name' => 'required',

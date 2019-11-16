@@ -59,7 +59,7 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
      */
     public function getPhotoUrlAttribute()
     {
-        return 'https://www.gravatar.com/avatar/'.md5(strtolower($this->email)).'.jpg?s=200&d=mm';
+        return 'https://www.gravatar.com/avatar/' . md5(strtolower($this->email)) . '.jpg?s=200&d=mm';
     }
 
     /**
@@ -108,12 +108,12 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
     {
         return [];
     }
-    public function business()
+    public function store()
     {
-      return $this->hasOne('App\BusinessModel');
+        return $this->hasOne('App\StoreModel');
     }
     public function country()
     {
-      return $this->belongsTo('App\Country');
+        return $this->belongsTo('App\Country');
     }
 }

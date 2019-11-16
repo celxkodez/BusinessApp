@@ -14,7 +14,7 @@ class ProductModel extends Model
     ];
 
     protected $fillable = [
-        'business_id',
+        'store_id',
         'name',
         'short_description',
         'brand_name',
@@ -29,8 +29,8 @@ class ProductModel extends Model
         'return_policy_2',
     ];
 
-    public function business()
+    public function store()
     {
-        return $this->belongsTo('App\BusinessModel');
+        return $this->belongsTo('App\StoreModel');
     }
 }
